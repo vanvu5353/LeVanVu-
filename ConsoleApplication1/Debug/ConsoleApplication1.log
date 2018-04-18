@@ -1,0 +1,21 @@
+﻿  Source.cpp
+v:\1712919\1712919\consoleapplication1\source.cpp(10): error C2380: type(s) preceding 'sothich' (constructor with return type, or illegal redefinition of current class-name?)
+v:\1712919\1712919\consoleapplication1\source.cpp(10): error C2208: 'sothich': no members defined using this type
+v:\1712919\1712919\consoleapplication1\source.cpp(33): error C2672: 'getline': no matching overloaded function found
+v:\1712919\1712919\consoleapplication1\source.cpp(33): error C2780: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &)': expects 2 arguments - 3 provided
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\string(157): note: see declaration of 'std::getline'
+v:\1712919\1712919\consoleapplication1\source.cpp(33): error C2784: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': could not deduce template argument for 'std::basic_istream<_Elem,_Traits> &' from 'std::ifstream'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\string(146): note: see declaration of 'std::getline'
+v:\1712919\1712919\consoleapplication1\source.cpp(33): error C2784: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': could not deduce template argument for 'std::basic_string<_Elem,_Traits,_Alloc> &' from 'int'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\string(146): note: see declaration of 'std::getline'
+v:\1712919\1712919\consoleapplication1\source.cpp(33): error C2780: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &)': expects 2 arguments - 3 provided
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\string(126): note: see declaration of 'std::getline'
+v:\1712919\1712919\consoleapplication1\source.cpp(33): error C2784: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': could not deduce template argument for 'std::basic_istream<_Elem,_Traits> &&' from 'std::ifstream'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\string(73): note: see declaration of 'std::getline'
+v:\1712919\1712919\consoleapplication1\source.cpp(33): error C2784: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': could not deduce template argument for 'std::basic_string<_Elem,_Traits,_Alloc> &' from 'int'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\string(73): note: see declaration of 'std::getline'
+v:\1712919\1712919\consoleapplication1\source.cpp(45): error C2146: syntax error: missing ';' before identifier 'ds_sv'
+v:\1712919\1712919\consoleapplication1\source.cpp(55): error C2065: 'file': undeclared identifier
+v:\1712919\1712919\consoleapplication1\source.cpp(55): error C2228: left of '.close' must have class/struct/union
+  v:\1712919\1712919\consoleapplication1\source.cpp(55): note: type is 'unknown-type'
+v:\1712919\1712919\consoleapplication1\source.cpp(56): error C3861: 'systen': identifier not found
