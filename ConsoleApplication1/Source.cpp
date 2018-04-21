@@ -284,16 +284,20 @@ void DocFile(FILE* fIn, sinhvien &x, int &BatDau)
 
 
 
-void main()
+int main()
 {
 
 	_setmode(_fileno(stdout), _O_U16TEXT); 
 	_setmode(_fileno(stdin), _O_U16TEXT); 
 
 
-	FILE* file;
+	/*FILE* file;
 	const char *filePath = "C:\V:\1712919_Vu.csv";
-	file = fopen(filePath, "r");
+	file = fopen(filePath, "r");*/
+	
+	const char *filePath = "C:\\V:\\1712919_Vu.csv";
+	 FILE* file;
+	  _wfopen_s(L"filePath", L"r, ccs=UTF-8");
 
 	if (file == NULL)
 	{
@@ -316,4 +320,5 @@ void main()
 	}
 
 	_getch();
+	return 0;
 }
