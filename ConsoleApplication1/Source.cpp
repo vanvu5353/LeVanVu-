@@ -170,7 +170,7 @@ void DocFile(FILE* fIn, sinhvien &x, int &BatDau)
 	fseek(fIn, BatDau, SEEK_SET);
 	fgetws(x.mssv, a, fIn);
 	int b = ftell(fIn);
-	wprintf(L"%ls\n", x.mssv);
+	wprintf(L"MSSV: %ls\n\n", x.mssv);
 
 
 
@@ -180,7 +180,7 @@ void DocFile(FILE* fIn, sinhvien &x, int &BatDau)
 	fseek(fIn, b + 1, SEEK_SET);
 	fgetws(x.hoten, a, fIn);
 	b = ftell(fIn);
-	wprintf(L"%ls\n", x.hoten);
+	wprintf(L"Ho va ten: %ls\n\n", x.hoten);
 
 
 	fseek(fIn, b + 1, SEEK_SET);
@@ -189,7 +189,7 @@ void DocFile(FILE* fIn, sinhvien &x, int &BatDau)
 	fseek(fIn, b + 1, SEEK_SET);
 	fgetws(x.khoa1, a, fIn);
 	b = ftell(fIn);
-	wprintf(L"%ls\n", x.khoa1);
+	wprintf(L"Khoa: %ls\n\n", x.khoa1);
 
 
 	fseek(fIn, b + 1, SEEK_SET);
@@ -198,7 +198,7 @@ void DocFile(FILE* fIn, sinhvien &x, int &BatDau)
 	fseek(fIn, b + 1, SEEK_SET);
 	fgetws(x.khoa2, a, fIn);
 	b = ftell(fIn);
-	wprintf(L"%ls\n", x.khoa2);
+	wprintf(L"Khoa: %ls\n", x.khoa2);
 
 
 	fseek(fIn, b + 1, SEEK_SET);
@@ -207,7 +207,7 @@ void DocFile(FILE* fIn, sinhvien &x, int &BatDau)
 	fseek(fIn, b + 1, SEEK_SET);
 	fgetws(x.ngaysinh, a, fIn);
 	b = ftell(fIn);
-	wprintf(L"%ls\n", x.ngaysinh);
+	wprintf(L"Ngay sinh: %ls\n\n", x.ngaysinh);
 
 
 	fseek(fIn, b + 1, SEEK_SET);
@@ -216,7 +216,7 @@ void DocFile(FILE* fIn, sinhvien &x, int &BatDau)
 	fseek(fIn, b + 1, SEEK_SET);
 	fgetws(x.hinhanh, a, fIn);
 	b = ftell(fIn);
-	wprintf(L"%ls\n", x.hinhanh);
+	wprintf(L"Link hinh anh: %ls\n\n", x.hinhanh);
 
 
 	fseek(fIn, b + 1, SEEK_SET);
@@ -225,7 +225,7 @@ void DocFile(FILE* fIn, sinhvien &x, int &BatDau)
 	fseek(fIn, b + 1, SEEK_SET);
 	fgetws(x.Gmail, a, fIn);
 	b = ftell(fIn);
-	wprintf(L"%ls\n", x.Gmail);
+	wprintf(L"Gmail: %ls\n\n", x.Gmail);
 
 
 
@@ -246,7 +246,7 @@ void DocFile(FILE* fIn, sinhvien &x, int &BatDau)
 		fgetws(x.motabanthan, a, fIn);
 		b = ftell(fIn) + 1;
 	}
-	wprintf(L"%ls\n", x.motabanthan);
+	wprintf(L"Mo ta ban than: %ls\n\n", x.motabanthan);
 
 
 
@@ -273,7 +273,7 @@ void DocFile(FILE* fIn, sinhvien &x, int &BatDau)
 			fgetwc(fIn);
 
 		}
-		wprintf(L"%ls\n\n", x.sothich);
+		wprintf(L"So thich x:c%ls\n\n", x.sothich);
 		BatDau = b + 2;
 	}
 	else{
@@ -281,8 +281,12 @@ void DocFile(FILE* fIn, sinhvien &x, int &BatDau)
 	}
 }
 
-
-
+/*void XuatFile(sinhvien a)
+{
+	wchar_t b[50];
+	wchar_t
+	
+}*/
 
 int main()
 {
@@ -290,14 +294,8 @@ int main()
 	_setmode(_fileno(stdout), _O_U16TEXT); 
 	_setmode(_fileno(stdin), _O_U16TEXT); 
 
-
-	/*FILE* file;
-	const char *filePath = "C:\V:\1712919_Vu.csv";
-	file = fopen(filePath, "r");*/
-	
-	const char *filePath = "C:\\V:\\1712919_Vu.csv";
 	 FILE* file;
-	  _wfopen_s(L"filePath", L"r, ccs=UTF-8");
+	 file=_wfopen(L"1712919_Vu.csv", L"r, ccs=UTF-8");
 
 	if (file == NULL)
 	{
