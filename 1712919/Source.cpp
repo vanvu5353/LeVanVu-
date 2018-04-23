@@ -1,62 +1,3 @@
-﻿
-/*#include<iostream>
-using namespace std;
-
-#include<fstream>
-#include<string>
-#include<vector>
-
-struct sothich
-{
-	string sothich;
-};
-typedef struct sothich SoThich;
-
-struct sinhvien
-{
-	string MSSV;
-	string HoTen;
-	string Khoa1;
-	int Khoa2;
-	string ngaysinh;
-	string hinhanh;
-	string motabanthan;
-	vector<SoThich> CacSoThich;
-};
-typedef struct sinhvien SinhVien;
-
-void DocThongTinSinhVien(ifstream &filein, SinhVien &sv)
-{
-
-	getline(filein,sv.MSSV,',');
-	getline(filein, sv.HoTen, ',');
-	getline(filein, sv.Khoa1, ',');
-	getline(filein, sv.Khoa2, ',');
-	getline(filein, sv.ngaysinh, ',');
-	getline(filein, sv.hinhanh, ',');
-	getline(filein, sv.motabanthan, ',');
-}
-
-void DocFile(ifstream &filein, vector<SinhVien> &ds_sv)
-{
-	while (filein.eof() == false)
-	{
-		SinhVien sv;
-		DocThongTinSinhVien(filein, sv)
-			ds_sv.push_back(sv);
-	}
-}
-
-void main()
-{
-	ifstream filein;
-	filein.open("1712919.csv", ios_base::in);
-	vector<SinhVien>ds_sv;
-	DocFile(filein, ds_sv);
-	file.close();
-	systen("pause");
- }*/
-
 
 #include<stdio.h>
 #include<string.h>
@@ -84,7 +25,7 @@ struct sinhvien
 int DDai(wchar_t s[])
 {
 	int i = 0;
-	while (s[i] != '\0'){
+	while (s[i] != '\0') {
 		i++;
 	}
 	return i;
@@ -94,35 +35,36 @@ int VuVan(FILE* f, wchar_t h)
 {
 	wchar_t ch;
 	int v = 0;
-	while (!feof(f)){
+	while (!feof(f)) 
+	{
 		ch = fgetwc(f);
 		if (ch != h)
 		{
 			v++;
 		}
 		else
-			return v+1;
+			return v + 1;
 	}
 	return v;
 }
 int TimKiem(FILE* f, wchar_t s[])
 {
 	int j, zhu = 0;
-	while (!feof(f)){
+	while (!feof(f)) {
 		j = 0;
 		fseek(f, zhu, SEEK_SET);
-		for (int i = 0; i < DDai(s); i++){
-			if (fgetwc(f) == s[i]){
+		for (int i = 0; i < DDai(s); i++) {
+			if (fgetwc(f) == s[i]) {
 				j++;
 			}
-			else{
+			else {
 				break;
 			}
 		}
-		if (j == DDai(s) - 1){
+		if (j == DDai(s) - 1) {
 			return ftell(f);
 		}
-		else{
+		else {
 			fseek(f, zhu + 1, SEEK_SET);
 		}
 		zhu++;
@@ -152,7 +94,7 @@ void replace(FILE* f, wchar_t s[], int pos, wchar_t x)
 	else
 	{
 		wchar_t tmp[1000];
-		fseek(f,TK(f, pos, x) + pos, SEEK_SET);
+		fseek(f, TK(f, pos, x) + pos, SEEK_SET);
 		fgetws(tmp, 1000, f);
 		wprintf(L"%ls", tmp);
 		fseek(f, pos, SEEK_SET);
@@ -162,15 +104,24 @@ void replace(FILE* f, wchar_t s[], int pos, wchar_t x)
 }
 
 
-void DocFile(FILE* fIn, sinhvien &x, int &BatDau)
+void DocFile(FILE* fIn, sinhvien &x, int &BatDau, int v)
 {
+
+	fflush(stdin);
 	fseek(fIn, BatDau, SEEK_SET);
 	int a = VuVan(fIn, L',');
+	int b = ftell(fIn);
+	if (v >= 2)
+		fseek(fIn, b + 1, SEEK_SET);
+
 	x.mssv = (wchar_t*)malloc(sizeof(wchar_t)*a);
+	fflush(stdin);
 	fseek(fIn, BatDau, SEEK_SET);
 	fgetws(x.mssv, a, fIn);
-	int b = ftell(fIn);
+	fflush(stdin);
 	wprintf(L"MSSV: %ls\n\n", x.mssv);
+	fflush(stdin);
+
 
 
 
@@ -230,7 +181,7 @@ void DocFile(FILE* fIn, sinhvien &x, int &BatDau)
 
 
 	fseek(fIn, b + 1, SEEK_SET);
-	if (fgetwc(fIn) != L'"'){
+	if (fgetwc(fIn) != L'"') {
 		fseek(fIn, b + 1, SEEK_SET);
 		a = VuVan(fIn, L',');
 		x.motabanthan = (wchar_t*)malloc(sizeof(wchar_t)*a);
@@ -238,7 +189,7 @@ void DocFile(FILE* fIn, sinhvien &x, int &BatDau)
 		fgetws(x.motabanthan, a, fIn);
 		b = ftell(fIn);
 	}
-	else{
+	else {
 		fseek(fIn, b + 2, SEEK_SET);
 		a = VuVan(fIn, L'"');
 		x.motabanthan = (wchar_t*)malloc(sizeof(wchar_t)*a);
@@ -251,8 +202,8 @@ void DocFile(FILE* fIn, sinhvien &x, int &BatDau)
 
 
 	fseek(fIn, b, SEEK_SET);
-	if (fgetwc(fIn) == L','){
-		if (fgetwc(fIn) != L'"'){
+	if (fgetwc(fIn) == L',') {
+		if (fgetwc(fIn) != L'"') {
 			fseek(fIn, b + 1, SEEK_SET);
 			a = VuVan(fIn, '\n');
 			x.sothich = (wchar_t*)malloc(sizeof(wchar_t)*a);
@@ -261,7 +212,7 @@ void DocFile(FILE* fIn, sinhvien &x, int &BatDau)
 			b = ftell(fIn);
 			BatDau = b;
 		}
-		else{
+		else {
 			fseek(fIn, b + 2, SEEK_SET);
 			a = VuVan(fIn, '"');
 			x.sothich = (wchar_t*)malloc(sizeof(wchar_t)*a);
@@ -276,26 +227,26 @@ void DocFile(FILE* fIn, sinhvien &x, int &BatDau)
 		wprintf(L"So thich x:c%ls\n\n", x.sothich);
 		BatDau = b + 2;
 	}
-	else{
+	else {
 		BatDau = b;
 	}
 }
 
 /*void XuatFile(sinhvien a)
 {
-	wchar_t b[50];
-	wchar_t
-	
+wchar_t b[50];
+wchar_t
+
 }*/
 
 int main()
 {
+	//bool check = true;
+	_setmode(_fileno(stdout), _O_U16TEXT);
+	_setmode(_fileno(stdin), _O_U16TEXT);
 
-	_setmode(_fileno(stdout), _O_U16TEXT); 
-	_setmode(_fileno(stdin), _O_U16TEXT); 
-
-	 FILE* file;
-	 file=_wfopen(L"1712919_Vu.csv", L"r, ccs=UTF-8");
+	FILE* file;
+	file = _wfopen(L"1712919_Vu.csv", L"r, ccs=UTF-8");
 
 	if (file == NULL)
 	{
@@ -305,11 +256,11 @@ int main()
 	{
 		int v = 0, BatDau = 3;
 		sinhvien* x;
-		x = (sinhvien*)malloc(sizeof(sinhvien)* 12);
-		while (!feof(file)){
+		x = (sinhvien*)malloc(sizeof(sinhvien) * 12);
+		while (!feof(file)) {
 			v++;
 
-			DocFile(file, x[v - 1], BatDau);
+			DocFile(file, x[v - 1], BatDau, v);
 		}
 
 		free(x);
