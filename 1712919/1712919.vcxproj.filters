@@ -18,10 +18,8 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="vu.txt">
-      <Filter>Header Files</Filter>
-    </Text>
+    <ClCompile Include="Source1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

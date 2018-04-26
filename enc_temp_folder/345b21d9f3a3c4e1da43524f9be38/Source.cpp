@@ -300,7 +300,6 @@ void XuatFile(sinhvien v)
 		fwprintf(f, L"        </div>\n");
 		fwprintf(f, L"    </body>\n");
 		fwprintf(f, L"</html>\n");
-		wprintf(L" \n ==>Tạo file %ls cho SV thứ %d thành công!!!\n", b, i + 1);
 	}
 	fclose(f);
 }
@@ -320,7 +319,6 @@ int main()
 	{
 		sinhvien* x;
 		x = (sinhvien*)malloc(sizeof(sinhvien) * 12);
-		XuatFile(x);
 		int v = 0, BatDau = 3;
 		while (!feof(file)) 
 		{
